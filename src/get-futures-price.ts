@@ -1,8 +1,8 @@
 import https from 'https';
 // Запрос на api.commex
-export async function getFuturesPrice (): Promise<any> {
+export async function getFuturesPrice (symbol: string): Promise<any> {
     return new Promise((resolve)=> {
-         https.get('https://api.commex.com/fapi/v1/ticker/bookTicker?symbol=BTCUSDT', (response) => {
+         https.get('https://api.commex.com/fapi/v1/ticker/bookTicker?symbol='+ symbol, (response) => {
              let data = '';
          
              // Накапливаем данные по мере получения

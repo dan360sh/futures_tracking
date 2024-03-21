@@ -42,7 +42,9 @@ export class FuturesPriceMonitoring {
             this.listFuturesInfo.pop();
         }
     }
-     
+    /**
+     * Возвращает минимальное и максимальное значение цены за указанное время.
+     */
     public getMaxAndMiinPrice(time: number): {max?: number, min?: number} {
         let priceMax: info | undefined;
         let priceMin: info | undefined;

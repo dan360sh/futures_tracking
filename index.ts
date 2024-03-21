@@ -8,11 +8,13 @@ import { getFuturesPrice } from './src/get-futures-price';
     {time: 14400000, name: '4 часа'},
     {time: 86400000, name: '24 часа'}
 ];
+//
+const symbol = 'BTCUSDT';
  async function main () {
      const futuresPriceMonitoring = new FuturesPriceMonitoring();
      //Вызов каждые 5s.
      setInterval(async () => {
-         const futuresPrice = await getFuturesPrice();
+         const futuresPrice = await getFuturesPrice(symbol);
          futuresPriceMonitoring.addPrice(futuresPrice.time, futuresPrice.bidPrice);
          timeList.forEach(time => {
             const info = futuresPriceMonitoring.getMaxAndMiinPrice(time.time);
